@@ -1,0 +1,9 @@
+import matplotlib.pyplot as plt
+
+# Convert ORDERDATE to datetime if not already
+df['ORDERDATE'] = pd.to_datetime(df['ORDERDATE'])
+
+# Group sales by date and plot
+df.groupby('ORDERDATE')['SALES'].sum().plot(figsize=(12,6), title="Total Sales Over Time", ylabel="Total Sales", xlabel="Date")
+
+plt.show()
